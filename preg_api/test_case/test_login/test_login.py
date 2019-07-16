@@ -21,7 +21,7 @@ class LoginCase(unittest.TestCase):
     def test_login_success(self):
         '''正常登陆测试'''
         account = 13510278144
-        password = md5_encryption('123456')
+        password = md5_encryption('1234596')
         querystring = {"account": account,
                        "password": password
                        }
@@ -37,7 +37,8 @@ class LoginCase(unittest.TestCase):
             self.assertEqual('登录成功', msg)
             # self.assertEqual('13510278144', bindphone)
         except AssertionError:
-            raise AssertionError('登录失败')
+            # raise AssertionError('登录失败' + msg)
+            raise AssertionError(msg)
 
     def tearDown(self):
         pass

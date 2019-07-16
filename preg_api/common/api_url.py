@@ -8,7 +8,8 @@
 
 # 将所有的API进行统一封装
 # api = 'http://m-alpha.lmbang.com' # lmb的host
-api = 'http://open.alpha.lmbang.com'   # preg的host
+# api = 'http://open.lmbang.com'     # preg的host（线上）
+api = 'http://open.alpha.lmbang.com'   # preg的host（alpha）
 
 # 账号、密码登陆URL
 login_url = api + '/user-login/index'
