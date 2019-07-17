@@ -8,13 +8,18 @@
 # 1.集中运行所有的测试用例，
 # 2.自动生成HTML报告，
 # 3.自动发送邮件
-
-from HTMLTestRunnerNew import HTMLTestRunner
-from preg_api.common.send_email import *
+import os
 import sys
 import unittest
+# 将获取当前路径，并插入os.path中，以免脱离IDE后，引包出现“找不到包”的错误
+preg_api_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, preg_api_path)
+print(preg_api_path)
 from preg_api.common.logger import *
+from preg_api.conf.HTMLTestRunnerNew import HTMLTestRunner
+from preg_api.common.send_email import *
 import time
+
 
 sys.path.append('./test_case')
 
@@ -59,16 +64,18 @@ if __name__ == '__main__':
     runner.run(alltestnames)
     fp.close()
 
-    # 发送测试邮件
-    content = "孕期伴侣接口自动化报告"
-    subject = "接口自动化报告"
-    from_addr = 'huangjunxiong@lmbang.com'
-    to_addr = ['huangjunxiong@lmbang.com']  # 列表形式填写收件人，发送给单个人也以列表形势传送
-    host = "smtp.exmail.qq.com"
-    pwd = "123456"    # 由于是第三方登陆，所以此处的密码是授权码,运行时需要修改为授权码
-    file_name = file
-    SendMail(content, subject, from_addr, to_addr, host, pwd, file_name).send_mail()
-
     # 打印日志
     log = Log()
-    log.info("运行所有用例")
+    log.info("所有用例运行完成")
+
+    # 发送测试邮件
+    # content = "孕期伴侣接口自动化报告"
+    # subject = "接口自动化报告"
+    # from_addr = 'huangjunxiong@lmbang.com'
+    # to_addr = ['huangjunxiong@lmbang.com']  # 列表形式填写收件人，发送给单个人也以列表形势传送
+    # host = "smtp.exmail.qq.com"
+    # pwd = "123456"    # 由于是第三方登陆，所以此处的密码是授权码,运行时需要修改为授权码
+    # file_name = file
+    # SendMail(content, subject, from_addr, to_addr, host, pwd, file_name).send_mail()
+
+
