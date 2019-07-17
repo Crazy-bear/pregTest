@@ -65,7 +65,7 @@ if __name__ == '__main__':
     from_addr = 'huangjunxiong@lmbang.com'
     to_addr = ['huangjunxiong@lmbang.com']  # 列表形式填写收件人，发送给单个人也以列表形势传送
     host = "smtp.exmail.qq.com"
-    pwd = "LRt3jAGvGrShQ9Xv"    # 由于是第三方登陆，所以此处的密码是授权码
+    pwd = "123456"    # 由于是第三方登陆，所以此处的密码是授权码
     file_name = file
     SendMail(content, subject, from_addr, to_addr, host, pwd, file_name).send_mail()
 
