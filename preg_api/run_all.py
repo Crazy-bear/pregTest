@@ -22,6 +22,7 @@ import time
 
 
 sys.path.append('./test_case')
+sys.path.append('./test_case_h5')
 
 
 def creat_test_suit():
