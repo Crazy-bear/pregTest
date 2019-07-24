@@ -47,7 +47,7 @@ class Post(unittest.TestCase):
             self.assertEqual('发帖成功', msg)
             self.assertIn('test', title)
         except AssertionError:
-            raise AssertionError('发帖失败:' + msg)
+            raise AssertionError('发帖失败')
 
     def test_post_taobao(self):
         '''淘宝帖'''
